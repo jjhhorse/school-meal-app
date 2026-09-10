@@ -12,6 +12,8 @@
     "dist:win": "npm run build && electron-builder --win nsis"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
     "react": "latest",
@@ -27,9 +29,25 @@
     "productName": "오늘 뭐 먹지",
     "asar": true,
     "compression": "maximum",
-    "directories": { "output": "release" },
-    "files": ["dist/**/*", "electron.cjs", "package.json"],
-    "win": { "target": "nsis", "artifactName": "오늘-뭐-먹지-Setup-${version}.${ext}" },
-    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true, "deleteAppDataOnUninstall": false, "artifactName": "오늘-뭐-먹지-설치-${version}.${ext}" }
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "오늘-뭐-먹지-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "오늘-뭐-먹지-설치-${version}.${ext}"
+    }
   }
 }
