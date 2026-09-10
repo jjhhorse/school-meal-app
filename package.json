@@ -1,0 +1,35 @@
+{
+  "name": "neis-meal-finder",
+  "version": "1.0.1",
+  "description": "NEIS 학교 급식 조회 앱",
+  "private": true,
+  "type": "module",
+  "main": "electron.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron:start": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "kr.neis.mealfinder",
+    "productName": "오늘 뭐 먹지",
+    "asar": true,
+    "compression": "maximum",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "electron.cjs", "package.json"],
+    "win": { "target": "nsis", "artifactName": "오늘-뭐-먹지-Setup-${version}.${ext}" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true, "deleteAppDataOnUninstall": false, "artifactName": "오늘-뭐-먹지-설치-${version}.${ext}" }
+  }
+}
