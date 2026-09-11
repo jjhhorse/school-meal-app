@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
 @media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}.meal-card,.meal-card:nth-child(5){grid-column:auto!important;height:360px;min-height:360px}.meal-card ul{min-height:135px;max-height:135px;overflow:hidden}}
-.hero-photo{width:min(38vw,390px);height:250px;align-self:center;object-fit:cover;border-radius:4px;box-shadow:12px 12px 0 #e8e5df}.hero>div:first-child{max-width:52%}@media(max-width:700px){.hero-photo{width:34vw;height:170px;box-shadow:7px 7px 0 #e8e5df}.hero>div:first-child{max-width:62%}}
+.hero-photo{width:min(38vw,390px);height:250px;align-self:center;object-fit:cover;border-radius:4px;box-shadow:12px 12px 0 #e8e5df}.hero>div:first-child{max-width:52%}.hero-plan{white-space:nowrap}@media(max-width:700px){.hero{display:grid;grid-template-columns:minmax(0,1fr) 78px;align-items:start;gap:10px}.hero-photo{width:78px;height:100px;align-self:start;margin-top:6px;box-shadow:5px 5px 0 #e8e5df}.hero>div:first-child{max-width:none;min-width:0}}
 .quote-card{margin:0;padding:24px 14px;align-self:center;color:#e15b3e;font:26px/1.25 'Nanum Pen Script',cursive;text-align:center}.quote-card small{display:block;margin-top:14px;color:#7a827e;font:11px 'DM Mono',monospace}@media(max-width:700px){.quote-card{grid-column:1/-1;padding:20px 30px;font-size:25px}}
 .grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-.mobile-quote-break{display:none}@media(max-width:700px){.mobile-quote-break{display:block}}
+.quote-line{display:inline}.quote-line+.quote-line::before{content:' '}.mobile-quote-break{display:none}@media(max-width:700px){.quote-line{display:block}.quote-line+.quote-line::before{content:none}}
 .quote-card{grid-column:1/-1;justify-self:center;width:min(620px,100%)}@media(max-width:700px){.meal-card:nth-child(5){grid-column:auto!important}.quote-card{grid-column:2;grid-row:3;width:auto;align-self:center;padding:20px 8px;font-size:23px}}
 .doodle-arrow{display:block;margin-top:8px;color:#e15b3e;font-size:28px;line-height:1}
 .nutrition{margin-top:14px;padding-top:10px;border-top:1px solid #e8e5df;color:#7d8982;font-size:9px}
