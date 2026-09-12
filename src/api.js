@@ -1,15 +1,24 @@
-const API_KEY = '3aeace82f952472ab2151a44cf0e736b';
-const API_BASE = 'https://open.neis.go.kr/hub';
+
 
 async function request(endpoint, params) {
-  const url = new URL(`${API_BASE}/${endpoint}`);
-  Object.entries({ KEY: API_KEY, Type: 'json', pIndex: 1, pSize: 100, ...params }).forEach(([key, value]) => url.searchParams.set(key, value));
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`NEIS API 오류 (${response.status})`);
-  const payload = await response.json();
-  const result = payload?.[endpoint]?.[0]?.head?.find((item) => item.RESULT)?.RESULT;
-  if (result && result.CODE !== 'INFO-000') throw new Error(result.MESSAGE || 'NEIS API 요청에 실패했습니다.');
-  return payload;
+  const query = new URLSearchParams({
+    endpoint,
+    Type: 'json',
+    pIndex: '1',
+    pSize: '100',
+    ...params
+  });
+
+  const response = await fetch(`/api/neis?${query.toString()}`);
+
+  if (!response.ok) {
+    const errorPayload = await response.json().catch(() => ({}));
+    throw new Error(
+      errorPayload.error || `NEIS API 오류 (${response.status})`
+    );
+  }
+
+  return await response.json();
 }
 
 export async function searchSchools(educationOfficeCode, schoolName) {
